@@ -19,7 +19,7 @@
           <q-input color="white" dark v-model="text" label="Email" ></q-input>
           <q-input color="white" dark v-model="text" label="Password" ></q-input>
           <router-link to="/">
-            <q-btn class="float-right q-mt-xl" color="dark" label="Log In"></q-btn>
+            <q-btn flat class="text-white float-right q-mt-xl" color="dark" label="Log In"></q-btn>
           </router-link>
         </div>
         <div class="login-page-team-logo-container q-mt-xl flex items-center justify-center">

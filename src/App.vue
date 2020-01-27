@@ -12,6 +12,12 @@ export default {
 
 <style>
   p {
-    font-size: 18px;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 26px;
+    margin: 0;
   }
 </style>

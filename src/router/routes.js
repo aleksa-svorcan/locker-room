@@ -6,9 +6,16 @@ const routes = [
   },
   {
     path: '/',
+    redirect: '/rooster',
     component: () => import('layouts/Layout.vue'),
     children: [
-      { path: '', component: () => import('pages/Home.vue') }
+      { path: '/rooster',
+        component: () => import('pages/Home/Rooster.vue'),
+      },
+      {
+        path: '/rooster-edit',
+        component: () => import('pages/Home/RoosterEdit.vue'),
+      }
     ]
   }
 ]

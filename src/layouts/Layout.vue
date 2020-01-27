@@ -9,9 +9,32 @@
         </q-btn>
         </div>
         <q-toolbar-title>
-          <div class="logged-in-user-menu flex items-center justify-end q-pr-md">
-            <img src="../statics/persons/trainer.png">
-            <p class="text-dark q-ml-md q-my-none">Andrea Trinchieri</p>
+          <div class="logged-in-user-menu q-pa-md flex justify-end">
+            <q-btn-dropdown class="logged-in-user-menu-inner text dark" flat color="dark">
+              <template v-slot:label>
+                <img src="../statics/persons/trainer.png">
+                <p class="text-dark q-ml-md q-my-none">Andrea Trinchieri</p>
+              </template>
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <q-item-label>Option1</q-item-label>
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <q-item-label>Option2</q-item-label>
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <q-item-label>Option3</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
           </div>
         </q-toolbar-title>
         <div class="messenger-button-container q-px-sm bg-white row flex-center items-center justify-center">
@@ -27,7 +50,7 @@
         <div class="layout-team-logo-container flex flex-center q-mb-xl">
           <img  class="layout-team-logo" src="../statics/partizan-main-logo.png"/>
         </div>
-        <q-item class="nav-item" clickable tag="a" target="_blank" href="https://quasar.dev">
+        <q-item class="nav-item" clickable tag="a" :to="{path: '/', exact: true}">
           <q-item-section avatar>
             <img color="white" src="../statics/project_icons/ios-people.svg" />
           </q-item-section>
@@ -139,22 +162,14 @@
             <q-item-label>Calendar</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item class="nav-item" clickable tag="a" target="_blank" href="https://facebook.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="settings" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Settings</q-item-label>
-          </q-item-section>
-        </q-item>
       </q-list>
     </q-drawer>
 
-    <q-drawer width="100" class="messenger-drawer" show-if-above v-model="right" side="right">
+    <q-drawer :width=100 class="messenger-drawer" show-if-above v-model="right" side="right">
       <div class="messenger-header bg-dark q-mb-xl"></div>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="pages-container bg-grey-2">
       <router-view />
     </q-page-container>
 
@@ -204,4 +219,15 @@
     }
   }
 
+  .logged-in-user-menu {
+    width: 100%;
+
+    .logged-in-user-menu-inner p{
+      font-size: 16px;
+    }
+  }
+
+  .pages-container {
+    min-height: 100vh;
+  }
 </style>
