@@ -50,7 +50,7 @@
         <div class="layout-team-logo-container flex flex-center q-mb-xl">
           <img  class="layout-team-logo" src="../statics/partizan-main-logo.png"/>
         </div>
-        <q-item class="nav-item" clickable tag="a" :to="{path: '/', exact: true}">
+        <q-item class="nav-item" clickable tag="a" :to="{path: '/'}">
           <q-item-section avatar>
             <img color="white" src="../statics/project_icons/ios-people.svg" />
           </q-item-section>

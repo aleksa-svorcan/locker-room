@@ -1,5 +1,5 @@
 <template>
-  <q-card class="staff-card">
+  <q-card v-if="this.editable" class="staff-card">
     <q-card-section class="bg-dark text-white row justify-between">
       <div class="flex justify-between">
         <img :src="getImgUrl(staff.img)">
@@ -10,15 +10,38 @@
       </div>
     </q-card-section>
   </q-card>
+  <q-card v-else class="staff-card-edit">
+    <q-card-section class="bg-dark text-white row justify-between">
+      <div class="flex justify-between">
+        <img :src="getImgUrl(staff.img)">
+        <div class="q-ml-md column justify-center">
+          <p>{{staff.name}}</p>
+          <p>{{staff.position}}</p>
+        </div>
+      </div>
+    </q-card-section>
+    <q-card-section class="bg-grey-4 q-pt-sm row justify-between">
+      <q-btn outline class="bg-grey-1" color="dark" label="Edit..."></q-btn>
+      <q-btn outline class="bg-grey-1" color="dark" label="Delete"></q-btn>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script>
   export default {
     name: 'StaffCard',
+    data(){
+      return {
+        editable: false
+      }
+    },
     props: {
       staff: {
         type: Object
       }
+    },
+    mounted() {
+      this.$route.path === '/rooster-edit'  ? this.editable = true : this.editable = false
     },
     methods: {
       getImgUrl(src) {

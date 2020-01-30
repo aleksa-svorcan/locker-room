@@ -7,7 +7,7 @@
           <q-btn outline class="bg-grey-3" color="dark" label="Add player..."></q-btn>
         </div>
         <div class="col-3 q-pa-md" v-for="(player,index) in players">
-          <player-card-edit  :player="player" :key="index"/>
+          <player-card :player="player" :key="index"/>
         </div>
       </q-card-section>
     </q-card>
@@ -17,7 +17,7 @@
           <h3 class="text-dark">Staff:</h3>
         </div>
         <div class="col-3 q-pa-md" v-for="(member,index) in staff">
-          <staff-card-edit  :staff="member" :key="index"/>
+          <staff-card  :staff="member" :key="index"/>
         </div>
       </q-card-section>
     </q-card>
@@ -25,14 +25,14 @@
 </template>
 
 <script>
-  import PlayerCardEdit from "./components/PlayerCardEdit";
-  import StaffCardEdit from  './components/StaffCardEdit'
+  import PlayerCard from "./components/PlayerCard";
+  import StaffCard from  './components/StaffCard'
   import { mapGetters } from 'vuex'
   export default {
     name: 'RoosterEdit',
     components: {
-      PlayerCardEdit,
-      StaffCardEdit
+      PlayerCard,
+      StaffCard
     },
     computed: {
       ...mapGetters([

@@ -5,6 +5,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import modal from 'vue-js-modal'
+Vue.use(modal, { dynamic: true})
+
 export default {
   name: 'App'
 }
