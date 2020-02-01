@@ -7,6 +7,10 @@
 <script>
 import Vue from 'vue'
 import modal from 'vue-js-modal'
+import UploadImage from 'vue-upload-image';
+
+// register globally
+Vue.component('upload-image', UploadImage)
 Vue.use(modal, { dynamic: true})
 
 export default {

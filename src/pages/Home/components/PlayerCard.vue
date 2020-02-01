@@ -14,10 +14,10 @@
       </div>
     </q-card-section>
     <q-card-section class="bg-grey-4 q-pt-sm row justify-between">
-      <q-btn outline class="bg-grey-1" color="dark" label="Edit..." @click="showEditModal"></q-btn>
-      <q-btn outline class="bg-grey-1" color="dark" label="Delete"></q-btn>
+      <q-btn outline class="bg-grey-1" color="dark" icon="edit" @click="showEditModal"></q-btn>
+      <q-btn outline class="bg-grey-1" color="red" icon="delete" @click="deletePlayer"></q-btn>
     </q-card-section>
-    <player-edit-modal :player="this.player"/>
+    <player-edit-modal @closeModal="hideEditModal" :person="this.player"/>
   </q-card>
   <q-card v-else class="player-card">
   <q-card-section class="bg-dark text-white row justify-between">
@@ -70,11 +70,14 @@
       <p>FPPG</p>
       <p>{{player.FPPG}}</p>
     </div>
+    <div class="player-data-col q-py-sm column flex items-center">
+      <q-btn dense no-caps size="md" outline class="bg-grey-1" color="dark" label="More" @click="showMoreModal"></q-btn>
+    </div>
   </q-card-section>
   <q-card-section class="bg-grey-4 q-pt-sm row justify-center">
-    <q-btn outline class="bg-grey-1" color="dark" label="More..." @click="showMoreModal"></q-btn>
+
   </q-card-section>
-  <player-more-modal :player="this.player"/>
+  <player-more-modal @closeModal="hideMoreModal" :player="this.player"/>
 </q-card>
 </template>
 
@@ -85,7 +88,8 @@
     name: 'PlayerCard',
     data(){
       return {
-        editable: false
+        editable: false,
+        id: this.personId
       }
     },
     components: {
@@ -95,14 +99,21 @@
     props: {
       player: {
         type: Object
+      },
+      personId: {
+        type: Number
       }
     },
     mounted() {
       this.$route.path === '/rooster-edit'  ? this.editable = true : this.editable = false
+      console.log('id player', this.id)
     },
     methods: {
       getImgUrl(src) {
         return '../../../statics/persons/' + src
+      },
+      deletePlayer() {
+        this.$store.commit('DELETE_PLAYER', this.id)
       },
       showMoreModal() {
         let player = this.player.name
@@ -111,6 +122,14 @@
       showEditModal() {
         let player = this.player.name + '-edit'
         this.$modal.show(player)
+      },
+      hideEditModal() {
+        let player = this.player.name + '-edit'
+        this.$modal.hide(player)
+      },
+      hideMoreModal() {
+        let player = this.player.name
+        this.$modal.hide(player)
       }
     }
   }

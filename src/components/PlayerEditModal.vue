@@ -17,36 +17,36 @@
         </div>
         <div class="bg-grey-4 col-12 q-pa-md row justify-between">
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input color="primary" class="text-primary" v-model="PPG" label="PPG" ></q-input>
+            <q-input color="primary" class="text-primary" v-model="player.PPG" label="PPG" ></q-input>
           </div>
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input v-model="RPG" label="RPG" ></q-input>
+            <q-input v-model="player.RPG" label="RPG" ></q-input>
           </div>
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input v-model="APG" label="APG" ></q-input>
+            <q-input v-model="player.APG" label="APG" ></q-input>
           </div>
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input v-model="BPG" label="BPG" ></q-input>
+            <q-input v-model="player.BPG" label="BPG" ></q-input>
           </div>
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input v-model="SPG" label="SPG" ></q-input>
+            <q-input v-model="player.SPG" label="SPG" ></q-input>
           </div>
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input v-model="FPG" label="FPG" ></q-input>
+            <q-input v-model="player.FPG" label="FPG" ></q-input>
           </div>
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input v-model="TPM" label="TPM" ></q-input>
+            <q-input v-model="player.TPM" label="TPM" ></q-input>
           </div>
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input v-model="TPP" label="TPP" ></q-input>
+            <q-input v-model="player.TPP" label="TPP" ></q-input>
           </div>
           <div class="player-data-col q-py-sm row flex items-center">
-            <q-input v-model="FPPG" label="FPPG" ></q-input>
+            <q-input v-model="player.FPPG" label="FPPG" ></q-input>
           </div>
         </div>
       </div>
       <div class="bg-grey-4 flex justify-center q-pa-md">
-        <q-btn flat class="bg-dark text-white" label="submit"></q-btn>
+        <q-btn flat class="bg-dark text-white" label="submit" @click="updatePlayer"></q-btn>
       </div>
     </div>
   </modal>
@@ -58,27 +58,36 @@
     data(){
       return {
         editable: false,
-        number: this.player.number,
-        position: this.player.position,
-        PPG: this.player.PPG,
-        RPG: this.player.RPG,
-        APG: this.player.APG,
-        BPG: this.player.BPG,
-        SPG: this.player.SPG,
-        FPG: this.player.FPG,
-        TPM: this.player.TPM,
-        TPP: this.player.TPP,
-        FPPG: this.player.FPPG,
+        player: {
+          name: this.person.name,
+          height: this.person.height,
+          number: this.person.number,
+          img: this.person.img,
+          position: this.person.position,
+          PPG: this.person.PPG,
+          RPG: this.person.RPG,
+          APG: this.person.APG,
+          BPG: this.person.BPG,
+          SPG: this.person.SPG,
+          FPG: this.person.FPG,
+          TPM: this.person.TPM,
+          TPP: this.person.TPP,
+          FPPG: this.person.FPPG,
+        }
       }
     },
     props: {
-      player: {
+      person: {
         type: Object
       }
     },
     methods: {
-      getImgUrl(src) {
+      getImgUrl (src) {
         return '../../../statics/persons/' + src
+      },
+      updatePlayer () {
+        this.$store.commit("UPDATE_PLAYER", this.player)
+        this.$emit('closeModal')
       }
     }
   }

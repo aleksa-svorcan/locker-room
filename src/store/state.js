@@ -85,7 +85,7 @@ export default function () {
         FPPG: '14',
       },
       {
-        name: 'Novica Velickovic',
+        name: 'Novica Velickovic1',
         img: 'novica_velickovic.svg',
         number: '#12',
         height: '1.98',
@@ -101,7 +101,7 @@ export default function () {
         FPPG: '14',
       },
       {
-        name: 'Novica Velickovic',
+        name: 'Novica Velickovic2',
         img: 'novica_velickovic.svg',
         number: '#12',
         height: '1.98',
@@ -117,7 +117,7 @@ export default function () {
         FPPG: '14',
       },
       {
-        name: 'Novica Velickovic',
+        name: 'Novica Velickovic3',
         img: 'novica_velickovic.svg',
         number: '#12',
         height: '1.98',
@@ -133,7 +133,7 @@ export default function () {
         FPPG: '14',
       },
       {
-        name: 'Novica Velickovic',
+        name: 'Novica Velickovic4',
         img: 'novica_velickovic.svg',
         number: '#12',
         height: '1.98',
@@ -149,7 +149,7 @@ export default function () {
         FPPG: '14',
       },
       {
-        name: 'Novica Velickovic',
+        name: 'Novica Velickovic5',
         img: 'novica_velickovic.svg',
         number: '#12',
         height: '1.98',
@@ -165,7 +165,7 @@ export default function () {
         FPPG: '14',
       },
       {
-        name: 'Novica Velickovic',
+        name: 'Novica Velickovic6',
         img: 'novica_velickovic.svg',
         number: '#12',
         height: '1.98',
@@ -181,7 +181,7 @@ export default function () {
         FPPG: '14',
       },
       {
-        name: 'Novica Velickovic',
+        name: 'Novica Velickovic7',
         img: 'novica_velickovic.svg',
         number: '#12',
         height: '1.98',
@@ -204,17 +204,17 @@ export default function () {
         img: 'trainer.png'
       },
       {
-        name: 'Coach Coach',
+        name: 'Coach Coach 1',
         position: 'Assistant',
         img: ''
       },
       {
-        name: 'Coach Coach',
+        name: 'Coach Coach 2',
         position: 'Assistant',
         img: ''
       },
       {
-        name: 'Coach Coach',
+        name: 'Coach Coach 3',
         position: 'Assistant',
         img: ''
       }
